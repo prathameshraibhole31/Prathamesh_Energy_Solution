@@ -1,0 +1,198 @@
+/* Header.css */
+
+
+
+.navLink {
+  /* Define common styles for your links */
+  font-size: 20px;
+  color: #121C61;
+  text-decoration: none;
+  padding: 10px;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: color 0.3s ease-out;
+}
+
+.navLink.active {
+  /* Define styles for the active link */
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom, #1EB8DF, #FFFFFF);
+  height: 200px;
+}
+
+.textContainer {
+  text-align: left;
+  margin-top: 10px;
+  font-size: 40px;
+  color: #333;
+  margin-left: 50px;
+}
+
+.image {
+  width: 350px;
+  height: 350px;
+  align-self: flex-start;
+  margin-top: -40px;
+}
+
+.linkContainer {
+  margin-top: -40px;
+  display: flex;
+  gap: 20px;
+}
+
+.pnf{
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnf-title {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.pnf-heading{
+  font-weight: normal;
+}
+
+.pnf-btn {
+  color: #000;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.pnf-btn:hover {
+  background-color: #000;
+  color: white;
+}
+
+/* Contact Form CSS */
+.contact-container {
+  display: flex;
+  justify-content: right;
+  height: 80vh;
+  margin-top: 50px;
+}
+
+.form-box {
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Align the text content to the left */
+  margin-right: 200px;
+}
+
+form {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline; /* Align items at the baseline */
+  margin-bottom: 50px; /* Add space below each label and input pair */
+}
+
+label {
+  width: 120px; /* Set a consistent width for the labels */
+  margin-right: 10px;
+}
+
+input {
+  flex: 1;
+  border: none; /* Remove the default border */
+  border-bottom: 1px solid #ccc; /* Add bottom border */
+  padding: 5px; /* Add some padding for better spacing */
+  outline: none; /* Remove the outline when focused */
+}
+
+/* Style for the input when focused */
+input:focus {
+  border-bottom: 1px solid #1EB8DF; /* Change the bottom border color when focused */
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+/* Header Styles */
+
+/* Gallery Container Styles */
+.gallery-container {
+  padding: 100px 20px 20px; /* Top padding to account for the fixed header height */
+  background-color: #f8f9fa; /* Light background */
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid Layout for Images (3x3) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 15px;
+  padding: 10px;
+}
+
+/* Gallery Item Styles */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Image Styling */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover Effects */
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+}
+
