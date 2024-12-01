@@ -7,29 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Button from "@mui/material/Button";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
-import ReactPhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-
-const headerStyle = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  backgroundColor: "#fff",
-  zIndex: 1000,
-  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
- 
-};
 
 const Contact = () => {
   const [showNav, setShowNav] = useState(false);
-  const [name, setName] = useState("");
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [email, setEmail] = useState("prathameshenergysolutionpune@gmail.com");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
 
   function closeMobileNav() {
     setShowNav(false);
@@ -49,6 +29,13 @@ const Contact = () => {
 
   window.onresize = closeMobileNavOnResize;
 
+  const [name, setName] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [email, setEmail] = useState("prathameshenergysolutionpune@gmail.com");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -61,7 +48,7 @@ const Contact = () => {
 
     const mobileNumberRegex = /^\d{10}$/;
 
-    if (!phoneNumber || !mobileNumber.match(mobileNumberRegex)) {
+    if (!mobileNumber.match(mobileNumberRegex)) {
       toast.error("Mobile number must contain exactly 10 digits.");
       return;
     }
@@ -106,7 +93,7 @@ const Contact = () => {
     justifyContent: "center",
     alignItems: "center",
     gap: "20px",
-    marginTop: "30px",
+    marginTop: "90px",
     height: "80vh",
   };
 
@@ -114,7 +101,6 @@ const Contact = () => {
     width: "100%",
     maxWidth: "500px",
     padding: "20px",
-    marginTop: "150px", // Add padding from the top
     border: "1px solid #ccc",
     borderRadius: "8px",
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
@@ -125,7 +111,6 @@ const Contact = () => {
     position: "fixed",
     top: "300px",
     left: "20px",
-    marginTop: "10px", // Align with the form's padding from the top
     padding: "20px",
     border: "1px solid rgba(0, 0, 0, 0.2)",
     borderRadius: "8px",
@@ -148,12 +133,6 @@ const Contact = () => {
   const iconStyle = {
     fontSize: "20px",
     color: "#1EB8DF",
-  };
-
-  const stickyPhoneNumberStyle = {
-    position: "sticky",
-    top: "100px", // Set this to the distance from the top of the screen to keep it fixed during scrolling
-    zIndex: 10, // Ensure it stays above other elements
   };
 
   return (
@@ -190,17 +169,20 @@ const Contact = () => {
                 placeholder="Enter your organization's name"
               />
             </div>
-            <div className="form-group" style={stickyPhoneNumberStyle}>
+            <div className="form-group">
               <label htmlFor="mobileNumber">Mobile Number:</label>
-              <ReactPhoneInput
-                placeholder="Enter your mobile number"
-                value={phoneNumber}
-                onChange={(phone) => {
-                  setPhoneNumber(phone);
-                  setMobileNumber(phone.replace(/[^0-9]/g, '')); // Remove non-numeric characters
+              <input
+                type="text"
+                id="mobileNumber"
+                value={mobileNumber}
+                onChange={(e) => {
+                  const inputMobileNumber = e.target.value;
+                  if (/^[0-9]*$/.test(inputMobileNumber) && inputMobileNumber.length <= 15) {
+                    setMobileNumber(inputMobileNumber); 
+                  }
                 }}
-                country={"in"}
-                searchCountryFlag={true}
+                maxLength="10"
+                placeholder="Enter your 10-digit mobile number"
               />
             </div>
             <div className="form-group">

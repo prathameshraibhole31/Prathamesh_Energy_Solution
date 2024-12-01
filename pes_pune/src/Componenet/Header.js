@@ -30,28 +30,29 @@ export default function Header() {
 
       window.onresize = closeMobileNavOnResize;
 
-  const containerStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    position: "sticky",
-    top: 0,
-    background: 'linear-gradient(to bottom, #1EB8DF, #FFFFFF)',
-    height: '280px',
-    overflow : 'hidden'    
-  };
-
-  const containerStylemob = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    position: "sticky",
-    top: 0,
-    background: 'linear-gradient(to bottom, #1EB8DF, #FFFFFF)',
-    height: '200px',
-    overflow : 'hidden'    
-
-  };
+      const containerStyle = {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        position: "sticky",
+        top: 0,
+        background: "linear-gradient(to bottom, #1EB8DF, #FFFFFF)",
+        height: "280px",
+        overflow: "hidden",
+        zIndex:1
+      };
+    
+      const containerStylemob = {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        position: "sticky",
+        top: 0,
+        background: "linear-gradient(to bottom, #1EB8DF, #FFFFFF)",
+        height: "200px",
+        overflow: "hidden",
+        zIndex:1
+      };
 
   const textContainerStyle = {
     textAlign: "left",
